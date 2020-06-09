@@ -1,0 +1,5 @@
+<p
+  class="mt-3 max-w-md mx-auto text-base text-gray-600 sm:text-lg md:mt-5
+  md:text-xl md:max-w-3xl">
+  <slot />
+</p>
