@@ -20,14 +20,14 @@
 
 <div class="wrapper flex flex-col justify-between h-screen">
   <main>
-    <Results />
-    <!-- {#if !$testIsActive && !$testIsComplete}
+    <!-- <Results /> -->
+    {#if !$testIsActive && !$testIsComplete}
       <Welcome />
     {:else if $testIsActive && !$testIsComplete}
       <Test />
     {:else if $testIsComplete}
       <Results />
-    {/if} -->
+    {/if}
   </main>
 
   <footer class="bg-gray-900">

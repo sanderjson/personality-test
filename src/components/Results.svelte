@@ -14,6 +14,7 @@
 
   let lion = {
     name: "Lion",
+    img: "lion.jpg",
     category: "A",
     strengths: [
       "goal-orientated",
@@ -51,6 +52,7 @@
 
   let beaver = {
     name: "Beaver",
+    img: "beaver.jpg",
     category: "D",
     strengths: [
       "hard-working",
@@ -88,6 +90,7 @@
 
   let otter = {
     name: "Otter",
+    img: "otter.jpg",
     category: "B",
     strengths: ["motivator", "people-person", "open", "positive"],
     environment: [
@@ -121,6 +124,7 @@
 
   let goldenRetriever = {
     name: "Golden Retriever",
+    img: "goldenRetriever.jpg",
     category: "C",
     strengths: [
       "accommodating",
@@ -177,25 +181,26 @@
   // for buttons at the bottom
   const switchActive = (index, type) => {
     response = types[index];
+    window.scrollTo(0, 0);
     console.log(type);
   };
 </script>
 
 <style>
-  .header img {
+  :global(.img) {
     height: 100%;
     object-fit: cover;
-    background: red;
   }
 </style>
 
 <Wrapper onClick={shareResults} text="Share Your Results">
 
   <header class="header pt-8">
-    <TitleLarge text={`The ${response.name}`} />
+    <TitleLarge text={`The ${response.name}`} hero={false} />
     <!-- <div class="mt-3"> -->
-      <Image src="static/otter.jpg" />
-    <!-- </div> -->
+    <div class="img-hero mt-3">
+      <Image placeholderClass="img" src={`static/${response.img}`} />
+    </div>
   </header>
 
   <div class="mt-8">

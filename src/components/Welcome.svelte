@@ -20,7 +20,7 @@
 <Wrapper onClick={takeTest} text="Take the Test">
 
   <header class="pt-16">
-    <TitleLarge top="Two Minute" bot="Personality Test" />
+    <TitleLarge text={["Two Minute", "Personality Test"]} hero={true} />
   </header>
 
   <div>
