@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { testIsActive, testIsComplete } from "./stores.js";
   import Welcome from "./components/Welcome.svelte";
   import Test from "./components/Test.svelte";
@@ -6,9 +7,27 @@
   import Paragraph from "./elements/Paragraph.svelte";
   import Twitter from "./elements/svgTwitter.svelte";
   import Linkedin from "./elements/svgLinkedin.svelte";
+
+  const setRootHeight = () => {
+    document
+      .querySelector(":root")
+      .style.setProperty("--vh", window.innerHeight / 100 + "px");
+  };
+
+  onMount(() => {
+    setRootHeight();
+  });
+
+  window.addEventListener("resize", () => {
+    setRootHeight();
+  });
 </script>
 
 <style>
+  .wrapper {
+    height: calc(100 * var(--vh));
+  }
+
   .wrapper main {
     flex-grow: 1;
   }
@@ -18,7 +37,7 @@
   }
 </style>
 
-<div class="wrapper flex flex-col justify-between h-screen">
+<div class="wrapper flex flex-col justify-between">
   <main>
     <!-- <Results /> -->
     {#if !$testIsActive && !$testIsComplete}
@@ -30,11 +49,11 @@
     {/if}
   </main>
 
-  <footer class="bg-gray-900">
+  <footer class="mt-3 bg-gray-900">
     <div
       class="mx-auto h-full flex justify-between items-center max-w-screen-xl
       px-8 py-2 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
-      <div class="text-gray-600">app by Jonathan Sanderson</div>
+      <div class="text-gray-600">Developed by J. Sanderson</div>
       <div class="h-full pt-1">
         <a
           href="https://twitter.com/sanderjson"

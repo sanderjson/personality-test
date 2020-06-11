@@ -193,18 +193,18 @@
   }
 </style>
 
-<Wrapper onClick={shareResults} text="Share Your Results">
+<Wrapper>
 
   <header class="header pt-8">
     <TitleLarge text={`The ${response.name}`} hero={false} />
     <!-- <div class="mt-3"> -->
-    <div class="img-hero mt-3">
+    <div class="img-hero mt-3 rounded-sm">
       <Image placeholderClass="img" src={`static/${response.img}`} />
     </div>
   </header>
 
   <div class="mt-8">
-    <TitleSmall text="About" min={false} />
+    <TitleSmall text="Summary" min={false} />
     <Paragraph>{response.paragraph}</Paragraph>
   </div>
 
@@ -238,34 +238,38 @@
     <Paragraph>{response.dealingWithThem}</Paragraph>
   </div>
 
+  <div class="button-wrapper mt-8 mb-8 text-center">
+    <Button onClick={shareResults} text="Share Your Results" />
+  </div>
+
   <div class="mt-8">
     <TitleSmall text="Your Results" min={false} />
     <div class="flex justify-evenly mt-3 py-4 border-2 rounded-sm">
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.A} />
-        <Number num={$testScore.A} />
+        <Number num={(($testScore.A * 100) / 57).toFixed(0)} />
         <TitleSmall min={true} text={types[0].name} />
       </div>
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.D} />
-        <Number num={$testScore.D} />
+        <Number num={(($testScore.D * 100) / 57).toFixed(0)} />
         <TitleSmall min={true} text={types[1].name} />
       </div>
       <div class="flex flex-col items-center text-center">
 
         <Progress value={$testScore.B} />
-        <Number num={$testScore.B} />
+        <Number num={(($testScore.B * 100) / 57).toFixed(0)} />
         <TitleSmall min={true} text={types[2].name} />
       </div>
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.C} />
-        <Number num={$testScore.C} />
+        <Number num={(($testScore.C * 100) / 57).toFixed(0)} />
         <TitleSmall min={true} text={types[3].name} />
       </div>
     </div>
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 mb-8">
     <TitleSmall text="Other Types" min={false} />
     <div class="mt-3 py-4 border-2 rounded-sm">
       <ImageGroup {switchActive} links={true} />

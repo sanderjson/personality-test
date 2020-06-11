@@ -19,6 +19,9 @@
 
   let valueBank;
   let answerBank;
+  // for star styles
+  let active;
+  let star1;
 
   const setNextQuestion = () => {
     currentTestQuestion.update(i => i + 1);
@@ -49,17 +52,12 @@
   };
 
   const updateTestScore = score => {
-    console.log("current test score", $testScore);
-    console.log("question score", score);
-
     testScore.set({
       A: $testScore.A + score.A,
       B: $testScore.B + score.B,
       C: $testScore.C + score.C,
       D: $testScore.D + score.D
     });
-
-    console.log("new test score", $testScore);
   };
 
   const questionSubmit = () => {
@@ -74,15 +72,22 @@
     }
   };
 
-  const goBack = () => {
-    if ($currentTestQuestion > 0) {
-      currentTestQuestion.update(i => i - 1);
-    } else {
-      testIsActive.set(false);
-    }
+  $: console.log(questionValues);
+
+  const calculateCurrentOrder = () => {
+    console.log([...valueBank.childNodes][0]);
+    console.log(star1);
   };
+
   onMount(() => {
-    dragula([valueBank], {});
+    dragula([valueBank], {}).on("dragend", el => {
+      let pos = [...valueBank.childNodes].findIndex(() => {
+        return el;
+      });
+
+      console.log("MOVING", pos);
+    });
+    calculateCurrentOrder();
   });
 </script>
 
@@ -93,7 +98,7 @@
   }
 </style>
 
-<Wrapper onClick={questionSubmit} text="Next Question">
+<Wrapper>
 
   <header class="header pt-8">
     <Title
@@ -110,11 +115,11 @@
     {#each questionValues as val}
       <div
         data-personality-type={val.value}
-        class="value flex h-20 px-4 items-center content-center">
+        class="value flex h-20 px-4 items-center content-center bg-gray-100">
         <div class="flex">
-          <Star />
-          <Star />
-          <Star />
+          <Star {active} />
+          <Star {active} />
+          <Star {active} />
         </div>
         <div
           class="text-2xl ml-8 tracking-tight leading-12 font-extrabold
@@ -123,6 +128,10 @@
         </div>
       </div>
     {/each}
+  </div>
+
+  <div class="button-wrapper mt-8 mb-8 text-center">
+    <Button onClick={questionSubmit} text="Next Question" />
   </div>
 
 </Wrapper>

@@ -17,10 +17,10 @@
   }
 </style>
 
-<Wrapper onClick={takeTest} text="Take the Test">
+<Wrapper>
 
   <header class="pt-16">
-    <TitleLarge text={["Two Minute", "Personality Test"]} hero={true} />
+    <TitleLarge text={['Two Minute', 'Personality Test']} hero={true} />
   </header>
 
   <div>
@@ -36,6 +36,10 @@
       This test is simple, but may still provide insightful information into
       your personality and personal relationships.
     </Paragraph>
+  </div>
+
+  <div class="button-wrapper mt-8 mb-8 text-center">
+    <Button onClick={takeTest} text="Take the Test" />
   </div>
 
 </Wrapper>
