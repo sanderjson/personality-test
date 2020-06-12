@@ -15,6 +15,8 @@
   let lion = {
     name: "Lion",
     img: "lion",
+    imgSrc: "photo by Kazuky Akayashi",
+    imgDesc: "face of a proud lion",
     category: "A",
     strengths: [
       "goal-orientated",
@@ -53,6 +55,8 @@
   let beaver = {
     name: "Beaver",
     img: "beaver",
+    imgSrc: "photo by Jon Sailer",
+    imgDesc: "face of a clever beaver",
     category: "D",
     strengths: [
       "hard-working",
@@ -91,6 +95,8 @@
   let otter = {
     name: "Otter",
     img: "otter",
+    imgDesc: "face of a creative otter",
+    imgSrc: "photo by Pixabay",
     category: "B",
     strengths: ["motivator", "people-person", "open", "positive"],
     environment: [
@@ -125,6 +131,8 @@
   let goldenRetriever = {
     name: "Golden Retriever",
     img: "goldenRetriever",
+    imgSrc: "photo by Helena Lopes",
+    imgDesc: "face of a compassionate golden retriever",
     category: "C",
     strengths: [
       "accommodating",
@@ -191,15 +199,7 @@
     console.log(type);
   };
 
-  // PHOTOS
-  // lion
-  // Kazuky Akayashi unsplash
-  // beaver
-  //  Jon Sailer unplash
-  // otter
-  // Pixabay pexels
-  // golden retriever
-  // Helena Lopes pexels
+  // console.log(response.name);
 </script>
 
 <style>
@@ -215,7 +215,16 @@
   <header class="header pt-8">
     <TitleLarge text={`The ${response.name}`} hero={false} />
     <div class="img-hero mt-3 max-w-md mx-auto md:max-w-3xl h-full rounded-sm">
-      <img src={`static/${response.img}980.jpg`} class="img w-full" alt="" />
+      <picture>
+        <source
+          srcset={`static/${response.img}768.jpg`}
+          media="(min-width: 480px)" />
+        <img
+          src={`static/${response.img}480.jpg`}
+          class="img w-full"
+          alt={response.imgDesc} />
+      </picture>
+      <div class="pr-1 text-sm text-right text-gray-600">{response.imgSrc}</div>
     </div>
   </header>
 
@@ -257,8 +266,8 @@
   <div class="mt-8 md:mt-16">
     <TitleSmall text="Share Your Results" min={false} />
     <div
-      class="mt-3 py-4 d:mt-5 md:py-8 border-2 max-w-md mx-auto md:max-w-3xl
-      rounded-sm text-center">
+      class="mt-3 py-4 d:mt-5 md:py-8 lg:py-12 border-2 max-w-md mx-auto
+      md:max-w-3xl rounded-sm text-center">
       <Button onClick={shareResults} text="Share Your Results" />
     </div>
   </div>
@@ -266,8 +275,8 @@
   <div class="mt-8 md:mt-16">
     <TitleSmall text="Your Results" min={false} />
     <div
-      class="flex justify-evenly mt-3 py-4 d:mt-5 md:py-8 max-w-md mx-auto
-      md:max-w-3xl border-2 rounded-sm">
+      class="flex justify-evenly mt-3 py-4 md:mt-5 md:py-8 lg:py-12 max-w-md
+      mx-auto md:max-w-3xl border-2 rounded-sm">
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.A} />
         <Number num={`${(($testScore.A * 100) / 57).toFixed(0)}%`} />
@@ -298,17 +307,17 @@
   <div class="mt-8 md:mt-16">
     <TitleSmall text="Other Types" min={false} />
     <div
-      class="mt-3 py-4 d:mt-5 md:py-8 border-2 max-w-md mx-auto md:max-w-3xl
-      rounded-sm">
-      <ImageGroup {switchActive} links={true} />
+      class="mt-3 py-4 d:mt-5 md:py-8 lg:py-12 border-2 max-w-md mx-auto
+      md:max-w-3xl rounded-sm">
+      <ImageGroup {switchActive} activeType={response.name} links={true} />
     </div>
   </div>
 
   <div class="my-8 md:my-16">
     <TitleSmall text="Take the Test Again" min={false} />
     <div
-      class="mt-3 py-4 md:mt-5 md:py-8 border-2 max-w-md mx-auto md:max-w-3xl
-      rounded-sm text-center">
+      class="mt-3 py-4 md:mt-5 md:py-8 lg:py-12 border-2 mx-auto max-w-md
+      md:max-w-3xl rounded-sm text-center">
       <Button onClick={resetTest} text="Reset Test" />
     </div>
   </div>

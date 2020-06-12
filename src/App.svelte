@@ -49,9 +49,9 @@
     {/if} -->
   </main>
 
-  <footer class="mt-3 md:mt-8 w-full mx-auto mx-auto lg:max-w-3xl bg-gray-900 lg:rounded-sm">
+  <footer class="mt-3 md:mt-8 w-full mx-auto sm:max-w-lg md:max-w-4xl bg-gray-900 sm:rounded-t-md">
     <div
-      class="mx-auto max-w-md mx-auto md:max-w-3xl flex justify-between items-center max-w-screen-xl
+      class="mx-auto max-w-l md:max-w-3xl flex justify-between items-center max-w-screen-xl
       px-8 py-2 sm:mt-12 sm:pb-5 sm:px-6 md:mt-16">
       <div class="text-gray-600">Developed by J. Sanderson</div>
       <div class="h-full pt-1">
