@@ -247,23 +247,26 @@
     <div class="flex justify-evenly mt-3 py-4 border-2 rounded-sm">
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.A} />
-        <Number num={(($testScore.A * 100) / 57).toFixed(0)} />
+        <Number num={`${(($testScore.A * 100) / 57).toFixed(0)}%`} />
+
         <TitleSmall min={true} text={types[0].name} />
       </div>
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.D} />
-        <Number num={(($testScore.D * 100) / 57).toFixed(0)} />
+        <Number num={`${(($testScore.D * 100) / 57).toFixed(0)}%`} />
+
         <TitleSmall min={true} text={types[1].name} />
       </div>
       <div class="flex flex-col items-center text-center">
 
         <Progress value={$testScore.B} />
-        <Number num={(($testScore.B * 100) / 57).toFixed(0)} />
+        <Number num={`${(($testScore.B * 100) / 57).toFixed(0)}%`} />
         <TitleSmall min={true} text={types[2].name} />
       </div>
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.C} />
-        <Number num={(($testScore.C * 100) / 57).toFixed(0)} />
+        <Number num={`${(($testScore.C * 100) / 57).toFixed(0)}%`} />
+
         <TitleSmall min={true} text={types[3].name} />
       </div>
     </div>

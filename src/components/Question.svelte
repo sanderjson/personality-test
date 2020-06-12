@@ -20,8 +20,8 @@
   let valueBank;
   let answerBank;
   // for star styles
-  let active;
-  let star1;
+  let value;
+  let pos;
 
   const setNextQuestion = () => {
     currentTestQuestion.update(i => i + 1);
@@ -72,22 +72,37 @@
     }
   };
 
-  $: console.log(questionValues);
-
-  const calculateCurrentOrder = () => {
-    console.log([...valueBank.childNodes][0]);
-    console.log(star1);
-  };
-
   onMount(() => {
-    dragula([valueBank], {}).on("dragend", el => {
-      let pos = [...valueBank.childNodes].findIndex(() => {
-        return el;
-      });
+    let valueBankArray = [...valueBank.childNodes];
 
-      console.log("MOVING", pos);
-    });
-    calculateCurrentOrder();
+    const createDatasetRank = () => {
+      valueBankArray = [...valueBank.childNodes];
+      for (const [index, element] of valueBankArray.entries()) {
+        element.dataset.personalityRank = 3 - index;
+        let starGroup = element.childNodes[0];
+        // stargroup has 5 child nodes - 3 svg and 2 text
+        if (element.dataset.personalityRank == 3) {
+          starGroup.childNodes[0].classList.add("active");
+          starGroup.childNodes[2].classList.add("active");
+          starGroup.childNodes[4].classList.add("active");
+        } else if (element.dataset.personalityRank == 2) {
+          starGroup.childNodes[0].classList.add("active");
+          starGroup.childNodes[2].classList.add("active");
+          starGroup.childNodes[4].classList.remove("active");
+        } else if (element.dataset.personalityRank == 1) {
+          starGroup.childNodes[0].classList.add("active");
+          starGroup.childNodes[2].classList.remove("active");
+          starGroup.childNodes[4].classList.remove("active");
+        } else {
+          starGroup.childNodes[0].classList.remove("active");
+          starGroup.childNodes[2].classList.remove("active");
+          starGroup.childNodes[4].classList.remove("active");
+        }
+      }
+    };
+
+    createDatasetRank();
+    dragula([valueBank], {}).on("dragend", createDatasetRank);
   });
 </script>
 
@@ -115,11 +130,12 @@
     {#each questionValues as val}
       <div
         data-personality-type={val.value}
+        data-personality-rank={0}
         class="value flex h-20 px-4 items-center content-center bg-gray-100">
         <div class="flex">
-          <Star {active} />
-          <Star {active} />
-          <Star {active} />
+          <Star />
+          <Star />
+          <Star />
         </div>
         <div
           class="text-2xl ml-8 tracking-tight leading-12 font-extrabold

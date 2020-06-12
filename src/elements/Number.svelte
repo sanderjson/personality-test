@@ -2,4 +2,4 @@
   export let num;
 </script>
 
-<div class="text-4xl font-semibold">{num}</div>
+<div class="text-md font-extrabold mt-1">{num}</div>

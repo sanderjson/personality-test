@@ -1,20 +1,17 @@
-<script>
-  export let active;
-</script>
-
 <style>
   .svg {
     fill: #e2e8f0;
+    transition: fill 0.3s ease;
   }
-  .active {
-    fill: #5a67d8;
+  :global(.svg.active) {
+    /* fill: #5a67d8; */
+    fill: #a3bffa;
   }
 </style>
 
 <svg
   class="svg"
-  class:active
-  width="24"
+  width="18"
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 576 512">
   <path
