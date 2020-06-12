@@ -16,6 +16,13 @@
   .progress {
     width: 100%;
   }
+
+  @media only screen and (min-width: 768px) {
+    .progress-total {
+      height: 360px;
+      width: 64px;
+    }
+  }
 </style>
 
 <div class="bar progress-total bg-gray-300 relative rounded-md">

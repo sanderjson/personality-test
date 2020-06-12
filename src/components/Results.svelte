@@ -14,7 +14,7 @@
 
   let lion = {
     name: "Lion",
-    img: "lion.jpg",
+    img: "lion",
     category: "A",
     strengths: [
       "goal-orientated",
@@ -52,7 +52,7 @@
 
   let beaver = {
     name: "Beaver",
-    img: "beaver.jpg",
+    img: "beaver",
     category: "D",
     strengths: [
       "hard-working",
@@ -90,7 +90,7 @@
 
   let otter = {
     name: "Otter",
-    img: "otter.jpg",
+    img: "otter",
     category: "B",
     strengths: ["motivator", "people-person", "open", "positive"],
     environment: [
@@ -124,7 +124,7 @@
 
   let goldenRetriever = {
     name: "Golden Retriever",
-    img: "goldenRetriever.jpg",
+    img: "goldenRetriever",
     category: "C",
     strengths: [
       "accommodating",
@@ -159,7 +159,13 @@
     quote: ["One thing at a time"]
   };
 
-  const shareResults = () => {};
+  const shareResults = () => {
+    console.log("shareResults");
+  };
+  const resetTest = () => {
+    console.log("resetTest");
+    location.reload();
+  };
 
   // let testScore = { A: 54, B: 35, C: 16, D: 9 };
 
@@ -184,11 +190,22 @@
     window.scrollTo(0, 0);
     console.log(type);
   };
+
+  // PHOTOS
+  // lion
+  // Kazuky Akayashi unsplash
+  // beaver
+  //  Jon Sailer unplash
+  // otter
+  // Pixabay pexels
+  // golden retriever
+  // Helena Lopes pexels
 </script>
 
 <style>
   :global(.img) {
     height: 100%;
+    max-height: 640px;
     object-fit: cover;
   }
 </style>
@@ -197,54 +214,60 @@
 
   <header class="header pt-8">
     <TitleLarge text={`The ${response.name}`} hero={false} />
-    <!-- <div class="mt-3"> -->
-    <div class="img-hero mt-3 rounded-sm">
-      <Image placeholderClass="img" src={`static/${response.img}`} />
+    <div class="img-hero mt-3 max-w-md mx-auto md:max-w-3xl h-full rounded-sm">
+      <img src={`static/${response.img}980.jpg`} class="img w-full" alt="" />
     </div>
   </header>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Summary" min={false} />
     <Paragraph>{response.paragraph}</Paragraph>
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Strengths" min={false} />
     <List list={response.strengths} />
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Environment" min={false} />
     <List list={response.environment} />
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Irritations" min={false} />
     <List list={response.irritations} />
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Weaknesses" min={false} />
     <List list={response.weakness} />
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Personal Growth" min={false} />
     <Paragraph>{response.growth}</Paragraph>
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Working with Them" min={false} />
     <Paragraph>{response.dealingWithThem}</Paragraph>
   </div>
 
-  <div class="button-wrapper mt-8 mb-8 text-center">
-    <Button onClick={shareResults} text="Share Your Results" />
+  <div class="mt-8 md:mt-16">
+    <TitleSmall text="Share Your Results" min={false} />
+    <div
+      class="mt-3 py-4 d:mt-5 md:py-8 border-2 max-w-md mx-auto md:max-w-3xl
+      rounded-sm text-center">
+      <Button onClick={shareResults} text="Share Your Results" />
+    </div>
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Your Results" min={false} />
-    <div class="flex justify-evenly mt-3 py-4 border-2 rounded-sm">
+    <div
+      class="flex justify-evenly mt-3 py-4 d:mt-5 md:py-8 max-w-md mx-auto
+      md:max-w-3xl border-2 rounded-sm">
       <div class="flex flex-col items-center text-center">
         <Progress value={$testScore.A} />
         <Number num={`${(($testScore.A * 100) / 57).toFixed(0)}%`} />
@@ -272,10 +295,21 @@
     </div>
   </div>
 
-  <div class="mt-8 mb-8">
+  <div class="mt-8 md:mt-16">
     <TitleSmall text="Other Types" min={false} />
-    <div class="mt-3 py-4 border-2 rounded-sm">
+    <div
+      class="mt-3 py-4 d:mt-5 md:py-8 border-2 max-w-md mx-auto md:max-w-3xl
+      rounded-sm">
       <ImageGroup {switchActive} links={true} />
+    </div>
+  </div>
+
+  <div class="my-8 md:my-16">
+    <TitleSmall text="Take the Test Again" min={false} />
+    <div
+      class="mt-3 py-4 md:mt-5 md:py-8 border-2 max-w-md mx-auto md:max-w-3xl
+      rounded-sm text-center">
+      <Button onClick={resetTest} text="Reset Test" />
     </div>
   </div>
 

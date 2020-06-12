@@ -13,13 +13,13 @@
   <h1
     class:min
     class="text-md tracking-tight leading-none font-medium text-gray-900
-    sm:text-5xl sm:leading-none md:text-6xl">
+    sm:text-lg sm:leading-none md:text-xl md:mt-1">
     {text}
   </h1>
 {:else}
   <h1
-    class="text-lg tracking-tight leading-none font-extrabold text-gray-900
-    sm:text-5xl sm:leading-none md:text-6xl">
+    class="text-lg max-w-md mx-auto md:max-w-3xl tracking-tight leading-none font-extrabold text-gray-900
+    sm:text-xl sm:leading-none md:text-2xl">
     {text}
   </h1>
 {/if}
