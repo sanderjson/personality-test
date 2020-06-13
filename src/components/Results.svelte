@@ -2,6 +2,7 @@
   import { testScore } from "../stores.js";
   import Wrapper from "./Wrapper.svelte";
   import Paragraph from "../elements/Paragraph.svelte";
+  import Quote from "../elements/Quote.svelte";
   import List from "../elements/List.svelte";
   import Button from "../elements/Button.svelte";
   import Title from "../elements/Title.svelte";
@@ -11,6 +12,26 @@
   import Progress from "../elements/Progress.svelte";
   import ImageGroup from "../elements/ImageGroup.svelte";
   import Image from "svelte-image";
+  import {
+    Email,
+    HackerNews,
+    Reddit,
+    LinkedIn,
+    Pinterest,
+    Telegram,
+    Tumblr,
+    Vk,
+    WhatsApp,
+    Xing,
+    Facebook,
+    Twitter
+  } from "svelte-share-buttons-component";
+
+  // for social share
+  const url = "https://personality-test.now.sh/";
+  const title = "Two Minute Personality Test";
+  const desc =
+    "Svelte based social media share buttons component with no tracking.";
 
   let lion = {
     name: "Lion",
@@ -18,38 +39,36 @@
     imgSrc: "photo by Kazuky Akayashi",
     imgDesc: "face of a proud lion",
     category: "A",
-    strengths: [
-      "goal-orientated",
-      "strong",
-      "direct",
-      "produce results",
-      "confident",
-      "challenge others"
+    strengths: ["results-driven", "direct", "confident", "challenge others"],
+    keyPoints: [
+      "feels safe with a sense of control",
+      "likes a fast and decisive pace"
     ],
+
     environment: [
-      "lots of projects",
-      "awards on the wall",
+      "many projects on the go",
+      "awards on display",
       "large calendar",
-      "formal arrangements"
+      "formal seating"
     ],
     security: "Control",
     pace: "fast and decisive",
     needs: ["responsive environment", "effecient team"],
     irritations: [
-      "wasted time",
+      "wasting time",
       "being unprepared",
       "arguing",
       "blocking results"
     ],
     growth:
-      "This personality likes to lead. He/she is a powerful leader who loves to be in the driver’s seat. The lion is a good decision maker and is very goal-oriented. He/she enjoys challenges, difficult assignments, and the opportunity for advancement. Lions are problem-solvers. They are rarely conversational.",
+      "Being a strong leader, the Lion is a good decision maker and is very goal-oriented. They enjoy challenges, difficult assignments, and the opportunity for advancement. Lions are problem-solvers. They are rarely conversational.",
     dealingWithThem:
-      " Avoid attacking their character, telling them what to do, presenting win-lose scenarios. Provide them with options, the freedom to act. Be efficient and competent. If you disagree – argue facts, not personal feelings. Be precise, time-disciplined, and well-organized. Do not waste their time. They don’t need a lot of information to make a decision.",
-    weakness: ["argumentative", "too dictorial"],
-    paragraph: [
-      "This personality likes to lead. He/she is a powerful leader who loves to be in the driver’s seat. The lion is a good decision maker and is very goal-oriented. He/she enjoys challenges, difficult assignments, and the opportunity for advancement. Lions are problem-solvers. They are rarely conversational."
+      "Avoid attacking their character, telling them what to do, or presenting win-lose scenarios. Provide them with options and the freedom to choose. Be efficient and competent. To make your point heard with a Lion, use facts not personal feelings. Be precise, timely and well-organized. Do not waste their time. They don’t need a lot of information to make a decision.",
+    weakness: ["argumentative", "bossy"],
+    summary: [
+      "You identify most as the Lion. This personality type likes to command a room. They are a powerful leader who loves to be in the driver’s seat. The Lion is a strong decision maker and is very goal-oriented. They enjoy challenges, difficult assignments, and the opportunity for advancement. Lions are problem-solvers. They are rarely have time to chitchat."
     ],
-    quote: ["Let's do it now!"]
+    quote: ["I want to start right away"]
   };
 
   let beaver = {
@@ -59,12 +78,14 @@
     imgDesc: "face of a clever beaver",
     category: "D",
     strengths: [
-      "hard-working",
       "detailed",
-      "accurate",
       "focused on quality",
       "high standards",
       "sense of order"
+    ],
+    keyPoints: [
+      "feels safe with preparation",
+      "likes a slow and systamic pace"
     ],
     environment: [
       "structured and organized",
@@ -76,7 +97,7 @@
     pace: "slow and systematic",
     needs: ["A climate that describes and focuses on accuracy and preciseness"],
     irritations: [
-      "unprepared and uniformed people",
+      "unprepared people",
       "lack of attention to detail",
       "surprises",
       "unpredictability"
@@ -86,10 +107,10 @@
     dealingWithThem:
       "Make faster decisions, tolerate conflict, learn to compromise, adjust to change and disorganization. See the optimistic side of things. Learn to relax and don’t expect others to do things just like they do.",
     weakness: ["unrealistic", "perfectionist"],
-    paragraph: [
-      "Beavers are very organized. They think that there is a right way to do everything, and they want to do it exactly that way. They are perfectionists. Beavers keep all the T’s crossed and the I’s dotted. They desire to solve everything and take their time to do it right. Beavers do not like sudden changes and often need reassurance."
+    summary: [
+      "You identify most as the Beaver. Beavers are very organized. They think that there is a right way to do everything and they want to do it exactly that way. They are perfectionists. Beavers keep all the T’s crossed and the I’s dotted. They desire to solve everything and take their time to do it right. Beavers do not like sudden changes and often need reassurance in their work. "
     ],
-    quote: ["Let's do some research"]
+    quote: ["First let's do some research"]
   };
 
   let otter = {
@@ -99,20 +120,21 @@
     imgSrc: "photo by Pixabay",
     category: "B",
     strengths: ["motivator", "people-person", "open", "positive"],
+    keyPoints: [
+      "feels safe with flexibility",
+      "likes a fast and spontaneous pace"
+    ],
     environment: [
       "cluttered",
       "awards and slogans on the wall",
       "personal pictures",
-      "friendly"
+      "inviting space"
     ],
     security: "flexibility",
     pace: "fast and spontaneous",
     needs: "collaborative environment",
     irritations: [
-      "too many facts",
-      "too much logic",
       "boring tasks",
-      "same old approach",
       "routine",
       "being alone",
       "when people ignore their opinions"
@@ -120,12 +142,12 @@
     growth:
       "Otters are very social creatures. They are the life of the party. This personality loves people. They enjoy being popular and influencing and motivating others. Otters are sometimes hurt when others do not like them. They love to goof-off and are notorious for having messy rooms. Otters like to hurry to finish jobs. They are always ready to have fun and create a fun environment for others. They are energized by being around a lot of people.",
     dealingWithThem:
-      "Avoid negativism, rejection, arguing. Be interested in them. Support their dreams, feelings, and opinions. Do not hurry the discussion – give them a chance to talk. Don’t deal with details. Put everything to them in writing. Everyone likes to spend time with Otters, except Beavers.",
+      "Otters don’t respond well to rejection, negativity or arguing to get a point across. Show interest in them – support their dreams, feelings, and opinions. Do not hurry the discussion and give them a chance to speak. Don’t deal with details. Put everything to them in writing. Everyone likes to spend time with Otters, except Beavers.",
     weakness: ["talks too much", "too easy going"],
-    paragraph: [
-      "Otters are very social creatures. They are the life of the party. This personality loves people. They enjoy being popular and influencing and motivating others. Otters are sometimes hurt when others do not like them. They love to goof-off and are notorious for having messy rooms. Otters like to hurry to finish jobs. They are always ready to have fun and create a fun environment for others. They are energized by being around a lot of people."
+    summary: [
+      "You identify most as the Otter. Otters are very social creatures and they are the life office party. They feed off of the energy from big groups of people. Being popular and influencing and motivating others pleases them. Otters are sometimes hurt when others do not like them. They love to goof-off and are notorious for having messy spaces. Otters like to hurry to finish jobs. They are always ready to have fun and create a fun environment for others. "
     ],
-    quote: ["Trust me! It'll work out!"]
+    quote: ["Trust me, it will all work out!"]
   };
 
   let goldenRetriever = {
@@ -137,9 +159,12 @@
     strengths: [
       "accommodating",
       "calm",
-      "affirming",
       "possess great compassion",
       "good listener"
+    ],
+    keyPoints: [
+      "feels safe with close relationships",
+      "likes a slow and easy pace"
     ],
     environment: [
       "family pictures",
@@ -151,38 +176,32 @@
     pace: "slow and easy",
     needs: "environment that processes",
     irritations: [
-      "push and aggressive behaviour",
+      "pushy and aggressive behaviour",
       "insincerity",
       "being put on the spot",
       "disrupting the status quo"
     ],
     growth:
-      "Golden Retrievers are great at making friends. They are very loyal. This personality type does not like big changes. They look for security and can be very sensitive. Retrievers are very caring and have deeprelationships. A Golden Retriever wants to be loved by everyone. He looks for appreciation and works best in a limited situation with a steady work pattern. They are known as peaceful leaders. They love to care for others and be cared for.",
+      "Golden Retrievers do not like big changes. They look for security and can be very sensitive. Retrievers are very caring and have deep relationships. A Golden Retriever wants to be loved by everyone. They look for appreciation and work best in a limited situation with a steady work pattern. Retrievers are known as peaceful leaders and care deeply for their team members.",
     dealingWithThem:
-      "Avoid conflict, sudden unplanned risky changes, overloading or confusing concepts. Give them assurances, reliability, and assistance in presenting to others. Be non-threatening and sincere. Show interest in their feelings. Don’t push. Assure them you will stand behind their decision.",
+      "Golden Retrievers don’t like conflict, sudden unplanned risky changes, feeling overloaded or confused. Give them assurances, reliability, and assistance in presenting to others. Be non-threatening and sincere. Show interest in their feelings. Don’t push. Assure them you will stand behind their decision.",
     weakness: ["indecisive", "indifferent"],
-    paragraph: [
-      "Golden Retrievers are great at making friends. They are very loyal. This personality type does not like big changes. They look for security and can be very sensitive. Retrievers are very caring and have deep relationships. A Golden Retriever wants to be loved by everyone. He looks for appreciation and works best in a limited situation with a steady work pattern. They are known as peaceful leaders. They love to care for others and be cared for."
+    summary: [
+      "You identify most as the Golden Retriever. Friendship and loyalty are very important to Retrievers. This personality type does not like big changes. They look for security and can be very sensitive. Retrievers are very caring and have deep relationships. A Golden Retriever wants to be loved by everyone. She/He looks for appreciation and works best in a limited situation with a steady work pattern. They are known as peaceful leaders. They love to care for others and be cared for."
     ],
-    quote: ["One thing at a time"]
+    quote: ["Let's focus one thing at a time"]
   };
 
-  const shareResults = () => {
-    console.log("shareResults");
-  };
   const resetTest = () => {
-    console.log("resetTest");
     location.reload();
+    window.scrollTo(0, 0);
   };
-
-  // let testScore = { A: 54, B: 35, C: 16, D: 9 };
 
   let types = [lion, beaver, otter, goldenRetriever];
 
   let result = Object.keys($testScore).reduce((a, b) =>
     $testScore[a] > $testScore[b] ? a : b
   );
-  console.log(result);
 
   const getPersonalityType = value => {
     for (const type of types) {
@@ -196,10 +215,7 @@
   const switchActive = (index, type) => {
     response = types[index];
     window.scrollTo(0, 0);
-    console.log(type);
   };
-
-  // console.log(response.name);
 </script>
 
 <style>
@@ -207,6 +223,19 @@
     height: 100%;
     max-height: 640px;
     object-fit: cover;
+  }
+
+  :global(.share-button) {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.375rem;
+  }
+
+  :global(.share-button svg) {
+    transform: scale(1.618);
   }
 </style>
 
@@ -230,7 +259,21 @@
 
   <div class="mt-8 md:mt-16">
     <TitleSmall text="Summary" min={false} />
-    <Paragraph>{response.paragraph}</Paragraph>
+    <Paragraph>{response.summary}</Paragraph>
+  </div>
+
+  <div class="mt-8 md:mt-16">
+    <TitleSmall text="Key Points" min={false} />
+    <List list={response.keyPoints} />
+  </div>
+
+  <div class="mt-8 md:mt-16">
+    <TitleSmall text="Quote" min={false} />
+    <div
+      class="mt-3 py-4 d:mt-5 md:py-8 lg:py-12 border-2 max-w-md mx-auto
+      md:max-w-3xl rounded-sm">
+      <Quote quote={response.quote} />
+    </div>
   </div>
 
   <div class="mt-8 md:mt-16">
@@ -259,16 +302,27 @@
   </div>
 
   <div class="mt-8 md:mt-16">
-    <TitleSmall text="Working with Them" min={false} />
+    <TitleSmall
+      text="Working with {response.name == 'Otter' ? 'an' : 'a'}
+      {response.name}"
+      min={false} />
     <Paragraph>{response.dealingWithThem}</Paragraph>
   </div>
 
   <div class="mt-8 md:mt-16">
     <TitleSmall text="Share Your Results" min={false} />
     <div
-      class="mt-3 py-4 d:mt-5 md:py-8 lg:py-12 border-2 max-w-md mx-auto
-      md:max-w-3xl rounded-sm text-center">
-      <Button onClick={shareResults} text="Share Your Results" />
+      class="flex justify-evenly mt-3 py-4 d:mt-5 md:py-8 lg:py-12 border-2
+      max-w-md mx-auto md:max-w-3xl rounded-sm text-center">
+      <LinkedIn
+        class="share-button"
+        {title}
+        {url}
+        summary={desc}
+        source={url} />
+      <Twitter class="share-button" text={title} {url} />
+      <WhatsApp class="share-button" text="{title} {url}" />
+
     </div>
   </div>
 

@@ -14338,7 +14338,12 @@ video {
 }
 
 :root {
-  --cl-main: #ff00ff;
+  --cl-main: #319795;
+  --cl-main-light: #38b2ac;
+  --cl-main-dark: #2c7a7b;
+  --cl-main: #4299e1;
+  --cl-main-light: #63b3ed;
+  --cl-main-dark: #3182ce;
 }
 
 @media (min-width: 640px) {

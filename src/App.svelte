@@ -39,14 +39,14 @@
 
 <div class="wrapper flex flex-col justify-between">
   <main>
-    <Results />
-    <!-- {#if !$testIsActive && !$testIsComplete}
+    <!-- <Results /> -->
+    {#if !$testIsActive && !$testIsComplete}
       <Welcome />
     {:else if $testIsActive && !$testIsComplete}
       <Test />
     {:else if $testIsComplete}
       <Results />
-    {/if} -->
+    {/if}
   </main>
 
   <footer class="mt-3 md:mt-8 w-full mx-auto sm:max-w-lg md:max-w-4xl bg-gray-900 sm:rounded-t-md">

@@ -25,6 +25,7 @@
     "svelte": "^3.23.0",
     "svelte-chartjs": "^1.0.4",
     "svelte-image": "^0.2.3",
+    "svelte-share-buttons-component": "^1.1.2",
     "tailwindcss": "^1.4.6"
   },
   "dependencies": {

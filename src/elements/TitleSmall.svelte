@@ -13,7 +13,7 @@
   <h1
     class:min
     class="text-md tracking-tight leading-none font-medium text-gray-900
-    sm:text-lg sm:leading-none md:text-xl md:mt-1">
+    sm:text-lg sm:leading-none md:text-xl mt-1">
     {text}
   </h1>
 {:else}

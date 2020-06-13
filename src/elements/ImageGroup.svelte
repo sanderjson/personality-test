@@ -15,22 +15,40 @@
   button {
     display: block;
   }
-  .overlay {
-    content: "";
-    mix-blend-mode: overlay;
-    transition: all 0.2s ease;
-    pointer-events: none;
-    box-sizing: border-box;
+
+  button {
+    transition: all 0.15s ease;
+    outline-color: var(--cl-main-dark);
   }
 
-  .img-button:hover + .overlay {
-    background: var(--cl-main);
+  button:focus, button:active {
+    box-shadow: 0 0 5px var(--cl-main-dark);
+  }
+
+  button:focus + .overlay {
+    transform: translateY(0);
+    border: none;
+  }
+
+  button:hover + .overlay {
+    background: var(--cl-main-light);
+    border: none;
     opacity: 0.191;
     transform: translateY(0);
   }
 
+  .overlay {
+    content: "";
+    /* mix-blend-mode: overlay; */
+    transition: all 0.2s ease;
+    pointer-events: none;
+  }
+
   .active {
     transform: translateY(8px);
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 5px solid;
     border-color: var(--cl-main);
   }
@@ -46,7 +64,10 @@
   <div class="img-group flex justify-evenly">
 
     <div class="test relative">
-      <button class="img-button" on:click={switchActive(0, 'Lion')}>
+      <button
+        class="img-button border border-transparent rounded-md transition
+        ease-in-out duration-150"
+        on:click={switchActive(0, 'Lion')}>
         <img src="static/lion144.jpg" alt="" />
       </button>
       <div
@@ -55,7 +76,10 @@
     </div>
 
     <div class="relative">
-      <button class="img-button" on:click={switchActive(1, 'Beaver')}>
+      <button
+        class="img-button border border-transparent rounded-md transition
+        ease-in-out duration-150"
+        on:click={switchActive(1, 'Beaver')}>
         <img src="static/beaver144.jpg" alt="" />
       </button>
       <div
@@ -64,7 +88,10 @@
     </div>
 
     <div class="relative">
-      <button class="img-button" on:click={switchActive(2, 'Otter')}>
+      <button
+        class="img-button border border-transparent rounded-md transition
+        ease-in-out duration-150"
+        on:click={switchActive(2, 'Otter')}>
         <img class="block" src="static/otter144.jpg" alt="" />
       </button>
       <div
@@ -74,7 +101,10 @@
 
     <div class="relative">
 
-      <button class="img-button" on:click={switchActive(3, 'Golden Retriever')}>
+      <button
+        class="img-button border border-transparent rounded-md transition
+        ease-in-out duration-150"
+        on:click={switchActive(3, 'Golden Retriever')}>
         <img src="static/goldenRetriever144.jpg" alt="" />
       </button>
       <div
