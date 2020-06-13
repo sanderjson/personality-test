@@ -117,7 +117,7 @@
     imgDesc: "face of a creative otter",
     imgSrc: "photo by Pixabay",
     category: "B",
-    strengths: ["motivator", "people-person", "open", "positive"],
+    strengths: ["open", "can motivate other", "people-person", "positive"],
     keyPoints: [
       "feels safe with flexibility",
       "likes a fast and spontaneous pace"
@@ -156,9 +156,9 @@
     category: "C",
     strengths: [
       "accommodating",
-      "calm",
       "possess great compassion",
-      "good listener"
+      "good listener",
+      "calm"
     ],
     keyPoints: [
       "feels safe with close relationships",
@@ -264,9 +264,7 @@
     <TitleLarge text={`The ${response.name}`} hero={false} />
     <div class="img-hero mt-3 max-w-md mx-auto md:max-w-3xl h-full rounded-sm">
       <picture>
-        <source
-          srcset={`static/${response.img}768.jpg`}
-          media="(min-width: 480px)" />
+        <source srcset={`static/${response.img}768.jpg`} media="(min-width: 480px)" />
         <img
           src={`static/${response.img}480.jpg`}
           class="img w-full"
@@ -395,3 +393,4 @@
   </div>
 
 </Wrapper>
+

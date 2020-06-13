@@ -35,7 +35,7 @@ export default {
 			},
 		}),
 		copy({
-			targets: [{ src: "static/g", dest: "public" }],
+			targets: [{ src: "assets", dest: "public" }],
 		}),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
