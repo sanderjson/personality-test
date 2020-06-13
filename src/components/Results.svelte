@@ -58,7 +58,7 @@
       "blocking results"
     ],
     growth:
-      "Being a strong leader, the Lion is a good decision maker and is very goal-oriented. They enjoy challenges, difficult assignments, and the opportunity for advancement. Lions are problem-solvers. They are rarely conversational.",
+      "Lions often need to learn that while they may win every verbal battle, they may lose the war and the prize of their family's and friends' hearts",
     dealingWithThem:
       "Avoid attacking their character, telling them what to do, or presenting win-lose scenarios. Provide them with options and the freedom to choose. Be efficient and competent. To make your point heard with a Lion, use facts not personal feelings. Be precise, timely and well-organized. Do not waste their time. They don’t need a lot of information to make a decision.",
     weakness: ["argumentative", "bossy"],
@@ -99,8 +99,9 @@
       "surprises",
       "unpredictability"
     ],
+
     growth:
-      "Make faster decisions, tolerate conflict, learn to compromise, adjust to change and disorganization. See the optimistic side of things. Learn to relax and don’t expect others to do things just like they do.",
+      "Beavers often need to learn that it's OK to fail and to call for help when it's needed. This is especially true when life events become unpredictable",
     dealingWithThem:
       "Make faster decisions, tolerate conflict, learn to compromise, adjust to change and disorganization. See the optimistic side of things. Learn to relax and don’t expect others to do things just like they do.",
     weakness: ["unrealistic", "perfectionist"],
@@ -137,7 +138,7 @@
       "when people ignore their opinions"
     ],
     growth:
-      "Otters are very social creatures. They are the life of the party. This personality loves people. They enjoy being popular and influencing and motivating others. Otters are sometimes hurt when others do not like them. They love to goof-off and are notorious for having messy rooms. Otters like to hurry to finish jobs. They are always ready to have fun and create a fun environment for others. They are energized by being around a lot of people.",
+      "Otters often need to learn that pleasing people and being apart of the crowd is not always the most important thing. Otters should also be aware of compulsive urges",
     dealingWithThem:
       "Otters don’t respond well to rejection, negativity or arguing to get a point across. Show interest in them – support their dreams, feelings, and opinions. Do not hurry the discussion and give them a chance to speak. Don’t deal with details. Put everything to them in writing. Everyone likes to spend time with Otters, except Beavers.",
     weakness: ["talks too much", "too easy going"],
@@ -179,7 +180,7 @@
       "disrupting the status quo"
     ],
     growth:
-      "Golden Retrievers do not like big changes. They look for security and can be very sensitive. Retrievers are very caring and have deep relationships. A Golden Retriever wants to be loved by everyone. They look for appreciation and work best in a limited situation with a steady work pattern. Retrievers are known as peaceful leaders and care deeply for their team members.",
+      "Golden Retrievers often need to learn that they may have a potential for codependency. Retrievers may enable a person's bad habits or an unhealthy relationship",
     dealingWithThem:
       "Golden Retrievers don’t like conflict, sudden unplanned risky changes, feeling overloaded or confused. Give them assurances, reliability, and assistance in presenting to others. Be non-threatening and sincere. Show interest in their feelings. Don’t push. Assure them you will stand behind their decision.",
     weakness: ["indecisive", "indifferent"],
@@ -218,8 +219,8 @@
     // for social share
     // url = "https://pchynoweth.github.io/svelte-share-buttons-component/";
     url = "https://personality-test.now.sh/";
-    title = "Two Minute Personality Test";
-    desc = `My personality type is a ${response.name}, this means I am ${response.strengths[0]}, and ${response.strengths[1]}. Find out yours:`;
+    // title = "Two Minute Personality Test";
+    title = `My personality type is a ${response.name}, this means I am ${response.strengths[0]}, and ${response.strengths[1]}. Find out yours:`;
   });
 </script>
 
