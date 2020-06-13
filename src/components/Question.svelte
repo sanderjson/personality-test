@@ -116,38 +116,43 @@
 <Wrapper>
 
   <header class="header pt-8">
-    <Title
-      title={{ top: `Question ${$currentTestQuestion + 1} / ${testLength}`, bot: '' }} />
+    <Title text={`Question ${$currentTestQuestion + 1} / ${testLength}`} />
     <div class="mt-3">
       <Paragraph>
-        Identify which terms most accurately describe you. Reorder the terms by
-        drag and drop. Move the most important terms to the top.
+        <strong>Identify which phrase most accurately describe you.</strong>
+        Move the text by drag and drop, place the most important phrases at the
+        top.
       </Paragraph>
     </div>
   </header>
 
-  <div class="mt-8 border-2 rounded-sm" bind:this={valueBank}>
-    {#each questionValues as val}
-      <div
-        data-personality-type={val.value}
-        data-personality-rank={0}
-        class="value flex h-20 px-4 items-center content-center bg-gray-100">
-        <div class="flex">
-          <Star />
-          <Star />
-          <Star />
-        </div>
+  <div class="mt-8 md:mt-16">
+    <div
+      class="mt-3 md:mt-5 border-2 max-w-md mx-auto md:max-w-3xl rounded-sm"
+      bind:this={valueBank}>
+      {#each questionValues as val}
         <div
-          class="text-2xl ml-8 tracking-tight leading-12 font-extrabold
-          text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-          {val.description}
+          data-personality-type={val.value}
+          data-personality-rank={0}
+          class="value flex h-20 px-4 items-center content-center mx-auto
+          bg-gray-100">
+          <div class="flex ml-3 md:ml-5 lg:ml-8 mr-5 md:mr-8 lg:mr-12">
+            <Star />
+            <Star />
+            <Star />
+          </div>
+          <Title text={val.description} />
         </div>
-      </div>
-    {/each}
+      {/each}
+    </div>
   </div>
 
-  <div class="button-wrapper mt-8 mb-8 text-center">
-    <Button onClick={questionSubmit} text="Next Question" />
+  <div class="my-8 md:my-16">
+    <div
+      class="mt-3 py-4 md:mt-5 md:py-8 lg:py-12 mx-auto max-w-md md:max-w-3xl
+      rounded-sm text-center">
+      <Button onClick={questionSubmit} text="Next Question" />
+    </div>
   </div>
 
 </Wrapper>

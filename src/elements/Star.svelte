@@ -2,18 +2,21 @@
   .svg {
     fill: #e2e8f0;
     transition: fill 0.3s ease;
+    width: 18px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .svg {
+      width: 24px;
+    }
   }
   :global(.svg.active) {
     /* fill: #5a67d8; */
-    fill: #a3bffa;
+    fill: var(--cl-main-light);
   }
 </style>
 
-<svg
-  class="svg"
-  width="18"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 576 512">
+<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
   <path
     d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2
     47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2

@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { testScore } from "../stores.js";
   import Wrapper from "./Wrapper.svelte";
   import Paragraph from "../elements/Paragraph.svelte";
@@ -27,11 +28,7 @@
     Twitter
   } from "svelte-share-buttons-component";
 
-  // for social share
-  const url = "https://personality-test.now.sh/";
-  const title = "Two Minute Personality Test";
-  const desc =
-    "Svelte based social media share buttons component with no tracking.";
+  let url, title, desc;
 
   let lion = {
     name: "Lion",
@@ -216,6 +213,14 @@
     response = types[index];
     window.scrollTo(0, 0);
   };
+
+  onMount(() => {
+    // for social share
+    // url = "https://pchynoweth.github.io/svelte-share-buttons-component/";
+    url = "https://personality-test.now.sh/";
+    title = "Two Minute Personality Test";
+    desc = `My personality type is a ${response.name}, this means I am ${response.strengths[0]}, and ${response.strengths[1]}. Find out yours:`;
+  });
 </script>
 
 <style>
@@ -226,18 +231,31 @@
   }
 
   :global(.share-button) {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0.375rem;
   }
-
   :global(.share-button svg) {
-    transform: scale(1.618);
+    transform: scale(1.388);
+  }
+  @media only screen and (min-width: 768px) {
+    :global(.share-button) {
+      width: 64px;
+      height: 64px;
+    }
+    :global(.share-button svg) {
+      transform: scale(1.618);
+    }
   }
 </style>
+
+<svelte:head>
+  <meta name="description" content={desc} />
+  <meta name="twitter:description" content={desc} />
+</svelte:head>
 
 <Wrapper>
 
@@ -270,8 +288,8 @@
   <div class="mt-8 md:mt-16">
     <TitleSmall text="Quote" min={false} />
     <div
-      class="mt-3 py-4 d:mt-5 md:py-8 lg:py-12 border-2 max-w-md mx-auto
-      md:max-w-3xl rounded-sm">
+      class="mt-3 py-4 d:mt-5 md:py-8 lg:py-12 max-w-md mx-auto md:max-w-3xl
+      rounded-sm">
       <Quote quote={response.quote} />
     </div>
   </div>
@@ -322,7 +340,6 @@
         source={url} />
       <Twitter class="share-button" text={title} {url} />
       <WhatsApp class="share-button" text="{title} {url}" />
-
     </div>
   </div>
 

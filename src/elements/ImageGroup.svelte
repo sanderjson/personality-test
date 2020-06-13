@@ -100,7 +100,6 @@
     </div>
 
     <div class="relative">
-
       <button
         class="img-button border border-transparent rounded-md transition
         ease-in-out duration-150"
@@ -114,7 +113,7 @@
 
   </div>
 {:else}
-  <div class="img-group flex mt-8 justify-between rounded-sm">
+  <div class="img-group flex justify-evenly">
     <img src="static/lion144.jpg" alt="" />
     <img src="static/beaver144.jpg" alt="" />
     <img src="static/otter144.jpg" alt="" />
