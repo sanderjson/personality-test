@@ -36,7 +36,7 @@
     imgSrc: "photo by Kazuky Akayashi",
     imgDesc: "face of a proud lion",
     category: "A",
-    strengths: ["results-driven", "direct", "confident", "challenge others"],
+    strengths: ["results-driven", "direct", "confident", "challenges others"],
     keyPoints: [
       "feels safe with a sense of control",
       "likes a fast and decisive pace"
@@ -82,7 +82,7 @@
     ],
     keyPoints: [
       "feels safe with preparation",
-      "likes a slow and systamic pace"
+      "likes a slow and systematic pace"
     ],
     environment: [
       "structured and organized",
@@ -99,11 +99,10 @@
       "surprises",
       "unpredictability"
     ],
-
     growth:
       "Beavers often need to learn that it's OK to fail and to call for help when it's needed. This is especially true when life events become unpredictable",
     dealingWithThem:
-      "Make faster decisions, tolerate conflict, learn to compromise, adjust to change and disorganization. See the optimistic side of things. Learn to relax and don’t expect others to do things just like they do.",
+      "Beavers do not like to be rushed, thrown into unpredictable situations, or dealing with unprepared people. They appreciate being able to take the time to make the best decision. They like to be informed, so try and offer them more details and explanations. Beavers may open up when talking about details and they appreciate technical knowledge.",
     weakness: ["unrealistic", "perfectionist"],
     summary: [
       "You identify most as the Beaver. Beavers are very organized. They think that there is a right way to do everything and they want to do it exactly that way. They are perfectionists. Beavers keep all the T’s crossed and the I’s dotted. They desire to solve everything and take their time to do it right. Beavers do not like sudden changes and often need reassurance in their work. "
@@ -138,12 +137,12 @@
       "when people ignore their opinions"
     ],
     growth:
-      "Otters often need to learn that pleasing people and being apart of the crowd is not always the most important thing. Otters should also be aware of compulsive urges",
+      "Otters often need to learn that pleasing people and being a part of the crowd is not always the most important thing. Otters should also be aware of compulsive urges",
     dealingWithThem:
       "Otters don’t respond well to rejection, negativity or arguing to get a point across. Show interest in them – support their dreams, feelings, and opinions. Do not hurry the discussion and give them a chance to speak. Don’t deal with details. Put everything to them in writing. Everyone likes to spend time with Otters, except Beavers.",
     weakness: ["talks too much", "too easy going"],
     summary: [
-      "You identify most as the Otter. Otters are very social creatures and they are the life office party. They feed off of the energy from big groups of people. Being popular and influencing and motivating others pleases them. Otters are sometimes hurt when others do not like them. They love to goof-off and are notorious for having messy spaces. Otters like to hurry to finish jobs. They are always ready to have fun and create a fun environment for others. "
+      "You identify most as the Otter. Otters are very social creatures and they are the life of the party. They feed off of the energy from big groups of people. Being popular and influencing and motivating others pleases them. Otters are sometimes hurt when others do not like them. They love to goof-off and are notorious for having messy spaces. Otters like to hurry to finish jobs. They are always ready to have fun and create a fun environment for others. "
     ],
     quote: ["Trust me, it will all work out!"]
   };
@@ -156,7 +155,7 @@
     category: "C",
     strengths: [
       "accommodating",
-      "possess great compassion",
+      "possesses great compassion",
       "good listener",
       "calm"
     ],
@@ -264,7 +263,9 @@
     <TitleLarge text={`The ${response.name}`} hero={false} />
     <div class="img-hero mt-3 max-w-md mx-auto md:max-w-3xl h-full rounded-sm">
       <picture>
-        <source srcset={`static/${response.img}768.jpg`} media="(min-width: 480px)" />
+        <source
+          srcset={`static/${response.img}768.jpg`}
+          media="(min-width: 480px)" />
         <img
           src={`static/${response.img}480.jpg`}
           class="img w-full"
@@ -393,4 +394,3 @@
   </div>
 
 </Wrapper>
-
