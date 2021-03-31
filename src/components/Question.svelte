@@ -114,6 +114,9 @@
 </script>
 
 <style>
+  .value-bank {
+    overscroll-behavior-y: contain;
+  }
   .value {
     touch-action: none;
     cursor: pointer;
@@ -138,7 +141,7 @@
 
   <div class="mt-8 md:mt-16">
     <div
-      class="mt-3 md:mt-5 border-2 max-w-md mx-auto md:max-w-3xl rounded-sm"
+      class="value-bank mt-3 md:mt-5 border-2 max-w-md mx-auto md:max-w-3xl rounded-sm"
       bind:this={valueBank}>
       {#each questionValues as val}
         <div

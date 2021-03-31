@@ -7,6 +7,6 @@
 	--cl-main-light: #63b3ed;
 	--cl-main-dark: #3182ce;
 }
-html {
+/* html {
 	overscroll-behavior: contain;
-}
+} */
