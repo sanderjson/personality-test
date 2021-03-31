@@ -14343,6 +14343,10 @@ video {
   --cl-main-dark: #3182ce;
 }
 
+html {
+  overscroll-behavior: contain;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
