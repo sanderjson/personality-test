@@ -102,7 +102,14 @@
     };
 
     createDatasetRank();
-    dragula([valueBank], {}).on("dragend", createDatasetRank);
+    dragula([valueBank], {})
+      .on("dragend", createDatasetRank)
+      .on('drag', (el) =>  {
+        el.classList.add('drag-hover-style')
+      })
+      .on('drop', (el) => {
+        el.classList.remove('drag-hover-style')
+      })
   });
 </script>
 
@@ -110,6 +117,9 @@
   .value {
     touch-action: none;
     cursor: pointer;
+  }
+  :global(.drag-hover-style) {
+    background: #4299e1;
   }
 </style>
 
@@ -135,7 +145,7 @@
           data-personality-type={val.value}
           data-personality-rank={0}
           class="value flex h-20 px-4 items-center content-center mx-auto
-          bg-gray-100">
+          bg-gray-100 transition-colors ease duration-150">
           <div class="flex ml-3 md:ml-5 lg:ml-8 mr-5 md:mr-8 lg:mr-12">
             <Star />
             <Star />
